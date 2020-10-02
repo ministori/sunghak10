@@ -74,11 +74,11 @@ UpdateImage()에서는 주어진 (x,y) 좌표와 z값으로 대응되는 이미�
 tex.width, tex.height 값 만큼 반복하면서 픽셀값을 업데이트 합니다.
 
 ```
-                        if (z * z > ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)) && ((z - 1) * (z - 1)) < ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)))
-                        {
-                            int pixelIndex = x + (y * tex.width);
-                            colorArray[pixelIndex] = srcArray[zPixel - z][pixelIndex];
-                        }
+        if (z * z > ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)) && ((z - 1) * (z - 1)) < ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)))
+        {
+            int pixelIndex = x + (y * tex.width);
+            colorArray[pixelIndex] = srcArray[zPixel - z][pixelIndex];
+        }
 ```
 
 Loop 동안 원 그리는 알고리즘을 통해서 원 영역 안쪽은 해당 프레임의 픽셀값으로 변경합니다.
