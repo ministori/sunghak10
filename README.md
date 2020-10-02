@@ -1,6 +1,6 @@
 # 성학십도 10도 소스
 
-업로드한 cs 파일이 이미지를 처리하는 전체 파일입니다.
+업로드한 SpriteMaker.cs 파일이 이미지를 처리하는 전체 파일입니다.
 
 ![image sequence](./image_seq.png)
 
