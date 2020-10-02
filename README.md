@@ -91,10 +91,9 @@ Loop 동안 원 그리는 알고리즘을 통해서 원 영역 안쪽은 해당 
 
 제가 생각하기에는 이미지 업데이트할 때 마다 배열 개수만큼 매번 반복하는 것 때문에 발생되는 현상일것으로 생각하고 있습니다.
 
-잘 부탁드립니다. ^^
-
 아래 링크는 동작 샘플 영상입니다.
 
 https://drive.google.com/file/d/1RHwx3srHs5kDrj9WmSpV0t5bi9HOwFWj/view?usp=sharing
 
+잘 부탁드립니다.!! ^^
 
