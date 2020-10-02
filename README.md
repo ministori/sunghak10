@@ -9,9 +9,9 @@ InitTexture() 에서 이미지 초기화를 진행합니다.
 기본 알고리즘 원리는 위 이미지처럼 영상을 이미지 시퀀스로 출력한 다음 겹치는 형태로 배치하였습니다.
 
 ```
-        colorArray = new Color[tex.width * tex.height];
+colorArray = new Color[tex.width * tex.height];
 
-        srcArray = new Color[videoSeq.Length][];
+srcArray = new Color[videoSeq.Length][];
 ```
 
 이미지로 출력할 픽셀을 저장할 배열(colorArray), 원래 이미지 시퀀스에서 뽑아내는 픽셀값을 저장할 배열(srcArray) 두개가 있습니다.
@@ -19,20 +19,20 @@ InitTexture() 에서 이미지 초기화를 진행합니다.
 두 개의 배열 모두 2차원 이미지 픽셀값을 1차원으로 Flatten 시켜서 저장합니다.
 
 ```
-        for (int i = 0; i < videoSeq.Length; i++)
-        {
-            srcArray[i] = videoSeq[i].GetPixels();
-        }
+for (int i = 0; i < videoSeq.Length; i++)
+{
+    srcArray[i] = videoSeq[i].GetPixels();
+}
 
-        for (int x = 0; x < tex.width; x++)
-        {
-            for (int y = 0; y < tex.height; y++)
-            {
-                int pixelIndex = x + (y * tex.width);
+for (int x = 0; x < tex.width; x++)
+{
+    for (int y = 0; y < tex.height; y++)
+    {
+        int pixelIndex = x + (y * tex.width);
 
-                colorArray[pixelIndex] = srcArray[0][pixelIndex];
-            }
-        }
+        colorArray[pixelIndex] = srcArray[0][pixelIndex];
+    }
+}
 ```
 
 colorArray에는 텍스처에 적용할 첫번째 이미지의 픽셀값을 저장합니다.
@@ -40,8 +40,8 @@ colorArray에는 텍스처에 적용할 첫번째 이미지의 픽셀값을 저�
 srcArray에는 각 이미지 시퀀스의 픽셀값을 저장합니다.
 
 ```
-        tex.SetPixels(colorArray);
-        tex.Apply();
+tex.SetPixels(colorArray);
+tex.Apply();
 ```
 
 colorArray값으로 텍스처에 적용합니다.
@@ -51,34 +51,34 @@ private void OnTriggerStay(Collider other) 에서 collider와 collider가 만났
 UpdateImage()에서는 주어진 (x,y) 좌표와 z값으로 대응되는 이미지상에서의 위치와 이미지 프레임번호를 중심으로 원뿔 형태로 프레임 번호가 대응되게 됩니다.
 
 ```
-        if( zPixel > 0 && zPixel <videoSeq.Length)
+if( zPixel > 0 && zPixel <videoSeq.Length)
+{
+    for (int x = 0; x < tex.width; x++)
+    {
+        for (int y = 0; y < tex.height; y++)
         {
-            for (int x = 0; x < tex.width; x++)
+            for (int z = 1; z < 50; z++)
             {
-                for (int y = 0; y < tex.height; y++)
+                if (z * z > ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)) && ((z - 1) * (z - 1)) < ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)))
                 {
-                    for (int z = 1; z < 50; z++)
-                    {
-                        if (z * z > ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)) && ((z - 1) * (z - 1)) < ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)))
-                        {
-                            int pixelIndex = x + (y * tex.width);
-                            colorArray[pixelIndex] = srcArray[zPixel - z][pixelIndex];
-                        }
-                    }
-
+                    int pixelIndex = x + (y * tex.width);
+                    colorArray[pixelIndex] = srcArray[zPixel - z][pixelIndex];
                 }
             }
+
         }
+    }
+}
 ```
 
 tex.width, tex.height 값 만큼 반복하면서 픽셀값을 업데이트 합니다.
 
 ```
-        if (z * z > ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)) && ((z - 1) * (z - 1)) < ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)))
-        {
-            int pixelIndex = x + (y * tex.width);
-            colorArray[pixelIndex] = srcArray[zPixel - z][pixelIndex];
-        }
+if (z * z > ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)) && ((z - 1) * (z - 1)) < ((x + 0.5 - xPixel) * (x + 0.5 - xPixel) + (y + 0.5 - yPixel) * (y + 0.5 - yPixel)))
+{
+    int pixelIndex = x + (y * tex.width);
+    colorArray[pixelIndex] = srcArray[zPixel - z][pixelIndex];
+}
 ```
 
 Loop 동안 원 그리는 알고리즘을 통해서 원 영역 안쪽은 해당 프레임의 픽셀값으로 변경합니다.
