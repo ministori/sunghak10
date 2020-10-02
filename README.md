@@ -102,6 +102,7 @@ https://drive.google.com/file/d/1RHwx3srHs5kDrj9WmSpV0t5bi9HOwFWj/view?usp=shari
 
 좀더 부연설명을 드리자면, 저희가 현재 VR 상에서 아래 링크에서 보여드리는 "Khronos Projector"와 같이 짧은 영상을 유저가 자유롭게 콘트롤하며 들여다 보게 하고자 계획하고 있습니다.
 
+크로노스 프로젝트:
 https://www.alvarocassinelli.com/khronos-projector/
 
 현재 저희가 준비한 영상은 약 15-20초 되는 영상이 준비되어 있는데요.
