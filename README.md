@@ -93,6 +93,8 @@ Loop 동안 원 그리는 알고리즘을 통해서 원 영역 안쪽은 해당 
 
 잘 부탁드립니다. ^^
 
+아래 링크는 동작 샘플 영상입니다.
 
+https://drive.google.com/file/d/1RHwx3srHs5kDrj9WmSpV0t5bi9HOwFWj/view?usp=sharing
 
 
