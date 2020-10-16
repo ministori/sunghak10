@@ -22,4 +22,6 @@ https://drive.google.com/file/d/1EX7YdAUGW4cigYdZ4OXA2VWHI_ihmE6-/view?usp=shari
 
 위 링크에서 유니티 전체 프로젝트 파일을 다운로드 받으실 수 있습니다.
 
+스크립트 소스는 SpriteMaker.cs 파일 소스를 확인해주시면 됩니다.
+
 도움주셔서 감사합니다.!!!
