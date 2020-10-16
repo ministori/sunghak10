@@ -6,4 +6,4 @@
 
 [test](https://youtu.be/gKGGyX0K5BY){:target="_blank"}
 
-<a href="https://youtu.be/gKGGyX0K5BY" target="_blank">영상 보기</a>
+<a target="_blank" href="https://youtu.be/gKGGyX0K5BY">영상 보기</a>
